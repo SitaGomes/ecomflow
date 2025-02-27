@@ -36,6 +36,7 @@ const chartConfig: ChartConfig = {
 };
 
 export function InventoryChart({ data, thresholds }: InventoryChartProps) {
+  console.log(data, thresholds);
   return (
     <ChartContainer config={chartConfig} className="max-h-[400px] w-full">
       <LineChart width={800} height={400} data={data}>

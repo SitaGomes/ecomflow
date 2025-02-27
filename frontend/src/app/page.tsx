@@ -5,12 +5,12 @@ import { handleFormatAsync, handleUploadAsync } from '@/lib';
 import { useState } from 'react';
 
 export default function HomePage() {
-  const [csvData, setCsvData] = useState(null);
+  const [csvData, setCsvData] = useState();
   const [thresholds, setThresholds] = useState(null);
 
   const handleFileUpload = async (file: File) => {
     const data = await handleUploadAsync(file);
-    setCsvData(data.data);
+    setCsvData(data);
   };
 
   const handleFormSubmit = async (params: any) => {

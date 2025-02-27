@@ -35,16 +35,15 @@ export class InventoryController {
 
   @Post('calculate')
   calculateThresholds(@Body() body: CalculateThresholdsDto) {
-    const { csvData, leadTime, safetyStock, avgDailySales } = body;
+    const { leadTime, safetyStock, avgDailySales } = body;
     if (
-      !csvData ||
       leadTime === undefined ||
       safetyStock === undefined ||
       avgDailySales === undefined
     ) {
       throw new BadRequestException('Missing required parameters');
     }
-    const thresholds = this.inventoryService.calculateThresholds(csvData, {
+    const thresholds = this.inventoryService.calculateThresholds({
       leadTime,
       safetyStock,
       avgDailySales,

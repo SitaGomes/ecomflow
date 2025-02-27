@@ -16,10 +16,11 @@ export class InventoryService {
     });
   }
 
-  calculateThresholds(
-    csvData: any[],
-    params: { leadTime: number; safetyStock: number; avgDailySales: number },
-  ): { low: number; medium: number; high: number } {
+  calculateThresholds(params: {
+    leadTime: number;
+    safetyStock: number;
+    avgDailySales: number;
+  }): { low: number; medium: number; high: number } {
     const base = params.avgDailySales * params.leadTime;
     const low = base * (1 - params.safetyStock / 100);
     const high = base * (1 + params.safetyStock / 100);
