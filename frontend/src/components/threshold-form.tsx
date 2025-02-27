@@ -1,3 +1,4 @@
+'use client';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useForm } from 'react-hook-form';
@@ -16,7 +17,7 @@ const schema = zod.object({
 
 type ThresholdFormValues = zod.infer<typeof schema>;
 
-export default function ThresholdForm({ onSubmit }: ThresholdFormProps) {
+export function ThresholdForm({ onSubmit }: ThresholdFormProps) {
   const {
     register,
     handleSubmit,

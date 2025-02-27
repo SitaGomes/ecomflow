@@ -1,18 +1,16 @@
 'use client';
 
-import FileUpload from '@/components/file-upload';
-import InventoryChart from '@/components/inventory-chart';
-import ThresholdForm from '@/components/threshold-form';
-import { handleFormatAsync, handleUploadAsync } from '@/lib/services/inventory';
+import { FileUpload, InventoryChart, ThresholdForm } from '@/components';
+import { handleFormatAsync, handleUploadAsync } from '@/lib';
 import { useState } from 'react';
 
-export default function Home() {
-  const [csvData, setCsvData] = useState();
+export default function HomePage() {
+  const [csvData, setCsvData] = useState(null);
   const [thresholds, setThresholds] = useState(null);
 
   const handleFileUpload = async (file: File) => {
     const data = await handleUploadAsync(file);
-    setCsvData(data);
+    setCsvData(data.data);
   };
 
   const handleFormSubmit = async (params: any) => {

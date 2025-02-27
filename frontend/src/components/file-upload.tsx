@@ -1,3 +1,4 @@
+'use client';
 import { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
@@ -5,7 +6,7 @@ interface FileUploadProps {
   onFileUpload: (file: File) => void;
 }
 
-export default function FileUpload({ onFileUpload }: FileUploadProps) {
+export function FileUpload({ onFileUpload }: FileUploadProps) {
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       const file = acceptedFiles;

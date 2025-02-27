@@ -35,10 +35,7 @@ const chartConfig: ChartConfig = {
   },
 };
 
-export default function InventoryChart({
-  data,
-  thresholds,
-}: InventoryChartProps) {
+export function InventoryChart({ data, thresholds }: InventoryChartProps) {
   return (
     <ChartContainer config={chartConfig} className="max-h-[400px] w-full">
       <LineChart width={800} height={400} data={data}>
